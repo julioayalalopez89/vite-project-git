@@ -1,0 +1,104 @@
+#root {
+ /* max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;*/
+}
+
+#guardar
+{
+transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+padding: 1rem !important;
+margin: 1rem !important;
+
+text-decoration: none;
+color: #fff;
+background-color: #d93d00;
+border-color: #cc3a00;
+cursor: pointer;    
+text-align: center !important;
+vertical-align: middle;
+
+}
+
+#tasks{
+  color: white;
+  background-color:  rgb(255, 72, 0);
+  
+}
+#chartContainer{
+  height: 300px; width: 100%;
+}
+#myjumbotron{
+  padding: 0rem;
+}
+#myinput{
+  width: 100%;
+ max-width: 600px;
+}
+#myinput1{
+ padding: 30px;
+}
+#myselect{
+  /*height: 47px;*/
+ }
+ #myp{
+  margin-bottom: 0%;
+ }
+
+ #b-border{
+  border-top: 1px solid #0000002f;
+ }
+
+ #mysmall{
+  font-size: 22px; line-height: 45px;
+ }
+ #mysmall1{
+  font-size: 16px; line-height: 40px;
+ }
+ #mybutton{
+  background-color: #1F1F2E;
+ }
+ #mybutton1{
+  background-color: #FF4800;
+  color: black;
+  border-color: #FF4800;
+ }
+#myaction{
+  font-size: 1.5rem;
+  color: #000;
+}
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}z
+
+.read-the-docs {
+  color: #888;
+}

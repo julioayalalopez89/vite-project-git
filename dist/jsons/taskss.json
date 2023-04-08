@@ -1,0 +1,31 @@
+{
+  "taskss": [
+     {
+	    "epigrafe": "4.1.1",
+      "accion": "Incorporar en el Anexo “Mapa de Públicos y Partes interesadas” de la Ficha de Proceso de Capital Humano, las partes interesadas de la SST.   ",
+      "responsable": "Direct. Gest. Empresarial y Direct. Gest. Cap. Humano ",
+      "comentarios": "chequear semanalmente",
+      "fecha": "1/8/2023",
+	    "participante": "Especialista de Calidad y Esp B de SST ",
+      "estado": "c"
+    },
+    {
+	    "epigrafe": "4.1.2",
+      "accion": "Reestructurar el Comité de SST",
+      "responsable": "Direct. Gest. Cap. Humano ",
+      "comentarios": "-",
+      "fecha": "2/5/2023",
+	    "participante": "Esp. Principal y Esp B de SST ",
+      "estado": "nc"
+    },
+    {
+	  "epigrafe": "7.2.1",
+      "accion": "Actualizar los Perfiles de Competencias para cada cargo. ",
+      "responsable": "Direct. Gest. Empresarial y Direct Gest Cap. Humano ",
+      "comentarios": "Pedir autorizacion a la empresa",
+      "fecha": "12/7/2023",
+	    "participante": "Esp.de Calidad y Esp. B de SST ",
+      "estado": "c"
+    }
+  ]
+}
