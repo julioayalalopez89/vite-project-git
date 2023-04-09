@@ -819,8 +819,8 @@ new Chart($grafica2, {
         </div>
         
         <div>
-    {/* 12Renderiza los datos obtenidos del archivo json */}
-    <button id='guardar' onClick={guardarCambios}>Guardar cambios</button>
+    {/* 12Renderiza los datos obtenidos del archivo json 
+    <button id='guardar' onClick={guardarCambios}>Guardar cambios</button>*/}
   </div>
 
     </div>
