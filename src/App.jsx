@@ -129,7 +129,7 @@ useEffect(() => {
       <form onSubmit={handleSubmit}>
       <div className="input-group">
                     <input id="myinput1" name="uname" required type="text" className="form-control border-light" onChange={(event)=> handleLogin(event)} placeholder="Organización"></input>
-                           <input id="myinput1" type="password" name="pass" required  className="form-control border-light" placeholder="Contraseña"></input>
+                           <input id="myinput2" type="password" name="pass" required  className="form-control border-light" placeholder="Contraseña"></input>
                     
                     <div className="input-group-append">
                   
