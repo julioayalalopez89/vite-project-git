@@ -36,7 +36,7 @@ vertical-align: middle;
   width: 100%;
  max-width: 600px;
 }
-#myinput1{
+#myinput1,#myinput2{
  padding: 30px;
 }
 #myselect{
