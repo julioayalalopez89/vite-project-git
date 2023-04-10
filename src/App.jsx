@@ -5,8 +5,9 @@ import './App.css'
 
 import './assets/style/style.css';
 
-
-import Chart from 'chart.js/auto';
+//Chart
+//import Chart from 'chart.js/auto';
+import MyChart from './components/MyChart';
 
 // data
 import { todos } from './assets/jsons/todos.json';
@@ -823,6 +824,17 @@ new Chart($grafica2, {
                 <h1 className="mb-2  text-white">Gráficas de los resultados </h1>
             </div>
     <div className="row">
+    
+    <div className="col-lg-6 pb-4 py-2 px-lg-5">
+            <MyChart
+            labels={"1,2,3,4"}
+            dataLabel={"prueba"}
+            data={[1,2,3,4]}
+            databackgrounfColor={"#FF4800;"}
+            borderColor={#646cffaa}
+            />
+             </div>
+
        <div className="col-lg-6 pb-4 py-2 px-lg-5">
             <canvas id="grafica1"></canvas>
              </div>
