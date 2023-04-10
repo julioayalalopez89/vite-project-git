@@ -330,139 +330,6 @@ console.log("parcumplidas",parcumplidas);
 const totales=[19,21,20,13,16,15,10];
 
 console.log("cumplidas",cumplidas);
-
-const label1 = "% de Cumplimiento por epigrafe"
-const etiquetas1 = epigrafes.map( (epigrafes,index)=>("Ep.:"+epigrafes.id));
-const datos1 = totales.map( (num,index)=>cumplidas[index]/totales[index]*100);
-
-
-const label2 = "% de Cumplimiento Total"
-const etiquetas2 = ["Requisitos Cumplidos","No cumplidos"];
-const datos2 = [cumplidas.reduce((acum,current)=>acum+current,0)/totales.reduce((acum,current)=>acum+current,0)*100,(totales.reduce((acum,current)=>acum+current,0)-cumplidas.reduce((acum,current)=>acum+current,0))/totales.reduce((acum,current)=>acum+current,0)*100];
-
-
-const labelpie = "% de Respuestas dadas"
-const etiquetaspie = ["Cumplidas", "NoCumplidas", "Parcialmente Cumplidas"];
-const datospie = [cumplidas.reduce((acum,current)=>acum+current,0),incumplidas.reduce((acum,current)=>acum+current,0),parcumplidas.reduce((acum,current)=>acum+current,0),]
-
-const labelpie1 = "% de Respuestas dadas"
-const etiquetaspie1 = ["Tareas Cumplidas", "Tareas Sin Cumplir", ];
-const datospie1 = [taskss.reduce((acum,current)=>current.estado=="c"?acum+1:acum,0),taskss.reduce((acum,current)=>current.estado=="nc"?acum+1:acum,0)];
-
-console.log("pie1",taskss.reduce((acum,current)=>current.estado=="nc"?acum+1:acum,0));
-console.log("label2",label2);
-//totales.map( (num,index)=>cumplidas[index]/totales.reduce((acum,current)=>acum+current,0));
-
-  // Obtener una referencia al elemento canvas del DOM
-  const $grafica = document.querySelector("#grafica");
-  const $grafica1 = document.querySelector("#grafica1");
-  const $grafica2 = document.querySelector("#grafica2");
-  const $grafica3 = document.querySelector("#grafica3");
-  
-  // Las etiquetas son las que van en el eje X. 
-  
-  //const etiquetas1 = epigrafes.map( (epigrafes,index)=>("Epigrafe:"+epigrafes.id));
-  const $minput = document.querySelector("#myinput");
-
-  (async function(){
-  // Podemos tener varios conjuntos de datos. Comencemos con uno
-  const datos = {
-      label: label1,
-      data: datos1, // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
-      backgroundColor: 'rgba(40, 167, 69, 0.6)', // Color de fondo
-      borderColor: 'rgba(200, 200, 200, 1)', // Color del borde
-      borderWidth: 1,// Ancho del borde
-  };
-  const datost = {
-    label: label2,
-    data: datos2, // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
-    backgroundColor: ['rgba(40, 167, 69, 0.6)','rgba(255, 72, 0, 0.6)'], // Color de fondo
-    borderColor: 'rgba(200, 200, 200, 1)', // Color del borde
-    borderWidth: 1,// Ancho del borde
-};
-  const datosp = {
-    label: labelpie,
-    data: datospie, // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
-    backgroundColor: ['rgba(40, 167, 69, 0.6)', 'rgba(255, 72, 0, 0.6)','rgba(255, 255, 0, 0.6)'], // Color de fondo
-    borderColor: 'rgba(200, 200, 200, 1)', // Color del borde
-    borderWidth: 1,// Ancho del borde
-};
-const datosp1 = {
-    label: labelpie1,
-    data: datospie1, // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
-    backgroundColor: ['rgba(40, 167, 69, 0.6)', 'rgba(255, 72, 03, 0.6)'], // Color de fondo
-    borderColor: 'rgba(200, 200, 200, 1)', // Color del borde
-    borderWidth: 1,// Ancho del borde
-};
-  new Chart($grafica, {
-      type: 'bar',// Tipo de gráfica
-      data: {
-          labels: etiquetas1,
-          datasets: [
-              datos
-              // Aquí más datos...
-          ]
-      },
-      options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero: true
-                  }
-              }],
-          },
-      }
-  });
-
-  new Chart($grafica1, {
-    type: 'doughnut',// Tipo de gráfica
-    data: {
-        labels: etiquetaspie,
-        datasets: [
-            datosp
-            // Aquí más datos...
-        ]
-    },
-    options: {
-       
-    }
-});
-new Chart($grafica3, {
-    type: 'doughnut',// Tipo de gráfica
-    data: {
-        labels: etiquetaspie1,
-        datasets: [
-            datosp1
-            // Aquí más datos...
-        ]
-    },
-    options: {
-       
-    }
-});
-
-
-new Chart($grafica2, {
-    type: 'pie',// Tipo de gráfica
-    data: {
-        labels: etiquetas2,
-        datasets: [
-            datost
-            // Aquí más datos...
-        ]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }],
-        },
-    }
-});
-})();
-
  
   return (
  
@@ -826,31 +693,10 @@ new Chart($grafica2, {
     <div className="row">
     
     <div className="col-lg-6 pb-4 py-2 px-lg-5">
-            <MyChart
-            labels={"1,2,3,4"}
-            dataLabel={"prueba"}
-            data={[1,2,3,4]}
-            databackgrounfColor={"#FF4800;"}
-            borderColor={"#646cffaa"}
-            />
+           
+            <MyChart id="test"/>
              </div>
 
-       <div className="col-lg-6 pb-4 py-2 px-lg-5">
-            <canvas id="grafica1"></canvas>
-             </div>
-
-          <div className="col-lg-6 pb-4 p-2y px-lg-5">
-            <canvas id="grafica"></canvas> 
-            </div>
-
-            <div className="col-lg-6 pb-4 p-2y px-lg-5">
-            <canvas id="grafica2"></canvas> 
-            </div>
-            
-            <div className="col-lg-6 pb-4 p-2y px-lg-5">
-            <canvas id="grafica3"></canvas> 
-            </div>
-            
             
             </div></div>
 
