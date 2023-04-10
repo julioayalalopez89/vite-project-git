@@ -831,7 +831,7 @@ new Chart($grafica2, {
             dataLabel={"prueba"}
             data={[1,2,3,4]}
             databackgrounfColor={"#FF4800;"}
-            borderColor={#646cffaa}
+            borderColor={"#646cffaa"}
             />
              </div>
 
