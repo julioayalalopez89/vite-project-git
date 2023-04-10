@@ -5,7 +5,7 @@ import './App.css'
 
 import './assets/style/style.css';
 
-import Chart from 'chart.js';
+import Chart from 'chart';
 
 // data
 import { todos } from './assets/jsons/todos.json';
