@@ -398,7 +398,7 @@ const datosp1 = {
       data: {
           labels: etiquetas1,
           datasets: [
-              datos,
+              datos
               // Aquí más datos...
           ]
       },
@@ -418,18 +418,12 @@ const datosp1 = {
     data: {
         labels: etiquetaspie,
         datasets: [
-            datosp,
+            datosp
             // Aquí más datos...
         ]
     },
     options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }],
-        },
+       
     }
 });
 new Chart($grafica3, {
@@ -437,18 +431,12 @@ new Chart($grafica3, {
     data: {
         labels: etiquetaspie1,
         datasets: [
-            datosp1,
+            datosp1
             // Aquí más datos...
         ]
     },
     options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }],
-        },
+       
     }
 });
 
@@ -458,7 +446,7 @@ new Chart($grafica2, {
     data: {
         labels: etiquetas2,
         datasets: [
-            datost,
+            datost
             // Aquí más datos...
         ]
     },
