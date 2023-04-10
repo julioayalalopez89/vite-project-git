@@ -7,7 +7,7 @@ import './assets/style/style.css';
 
 //Chart
 //import Chart from 'chart.js/auto';
-import MyChart from './components/MyChart';
+import ChartComponent from './components/ChartComponent';
 
 // data
 import { todos } from './assets/jsons/todos.json';
@@ -694,8 +694,30 @@ console.log("cumplidas",cumplidas);
     
     <div className="col-lg-6 pb-4 py-2 px-lg-5">
            
-            <MyChart id="test"/>
+            {console.log("labels")}
+            {console.log(totales.map( (num,index)=>cumplidas[index]/totales[index]*100))}
+            <ChartComponent 
+            type = "bar"
+            labels={epigrafes.map( (epigrafes,index)=>("Ep.:"+epigrafes.id))}
+            dataLabel="% de Cumplimiento por epigrafe"
+            data = { totales.map( (num,index)=>cumplidas[index]/totales[index]*100)}
+            backgroundColor = "rgba(40, 167, 69, 0.6)"
+            borderColor = "rgba(200, 200, 200, 1)"
+            />
              </div>
+             
+             <div className="col-lg-6 pb-4 py-2 px-lg-5">
+           
+             
+           <ChartComponent 
+           type = "bar"
+           labels={["Requisitos Cumplidos","No cumplidos"]}
+           dataLabel="% de Cumplimiento Total"
+           data = {[cumplidas.reduce((acum,current)=>acum+current,0)/totales.reduce((acum,current)=>acum+current,0)*100,(totales.reduce((acum,current)=>acum+current,0)-cumplidas.reduce((acum,current)=>acum+current,0))/totales.reduce((acum,current)=>acum+current,0)*100]}
+           backgroundColor = "rgba(40, 167, 69, 0.6)"
+           borderColor = "rgba(200, 200, 200, 1)"
+           />
+            </div>
 
             
             </div></div>
