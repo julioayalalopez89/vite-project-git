@@ -691,12 +691,39 @@ console.log("cumplidas",cumplidas);
                 <h1 className="mb-2  text-white">Gráficas de los resultados </h1>
             </div>
     <div className="row">
+
+    <div className="col-lg-6 pb-4 p-2y px-lg-5">
+<div >
+<ChartComponent 
+           type = "doughnut"
+           labels={["Cumplidas", "NoCumplidas", "Parcialmente Cumplidas"]}
+           dataLabel="% de Respuestas dadas"
+           data = {[cumplidas.reduce((acum,current)=>acum+current,0),incumplidas.reduce((acum,current)=>acum+current,0),parcumplidas.reduce((acum,current)=>acum+current,0),]}
+           backgroundColor = {['rgba(40, 167, 69, 0.6)', 'rgba(255, 72, 0, 0.6)','rgba(255, 255, 0, 0.6)']}
+           borderColor = "rgba(200, 200, 200, 1)"
+           />
+    </div> 
+</div>
     
+
+<div className="col-lg-6 pb-4 p-2y px-lg-5">
+<div id="grafica3">
+<ChartComponent 
+           type = "doughnut"
+           labels={["Tareas Cumplidas", "Tareas Sin Cumplir", ]}
+           dataLabel="% de Respuestas dadas"
+           data = {[taskss.reduce((acum,current)=>current.estado=="c"?acum+1:acum,0),taskss.reduce((acum,current)=>current.estado=="nc"?acum+1:acum,0)]}
+           backgroundColor = {['rgba(40, 167, 69, 0.6)','rgba(255, 72, 0, 0.6)']}
+           borderColor = "rgba(200, 200, 200, 1)"
+           />
+    </div> 
+</div>
+
+
+
     <div className="col-lg-6 pb-4 py-2 px-lg-5">
-           
-            {console.log("labels")}
-            {console.log(totales.map( (num,index)=>cumplidas[index]/totales[index]*100))}
-            <ChartComponent 
+<div id="grafica1">
+<ChartComponent 
             type = "bar"
             labels={epigrafes.map( (epigrafes,index)=>("Ep.:"+epigrafes.id))}
             dataLabel="% de Cumplimiento por epigrafe"
@@ -704,20 +731,30 @@ console.log("cumplidas",cumplidas);
             backgroundColor = "rgba(40, 167, 69, 0.6)"
             borderColor = "rgba(200, 200, 200, 1)"
             />
-             </div>
-             
-             <div className="col-lg-6 pb-4 py-2 px-lg-5">
-           
-             
-           <ChartComponent 
-           type = "bar"
+</div>
+ </div>
+
+<div className="col-lg-6 pb-4 p-2y px-lg-5">
+<div id="grafica2">
+<ChartComponent 
+           type = "pie"
            labels={["Requisitos Cumplidos","No cumplidos"]}
            dataLabel="% de Cumplimiento Total"
            data = {[cumplidas.reduce((acum,current)=>acum+current,0)/totales.reduce((acum,current)=>acum+current,0)*100,(totales.reduce((acum,current)=>acum+current,0)-cumplidas.reduce((acum,current)=>acum+current,0))/totales.reduce((acum,current)=>acum+current,0)*100]}
-           backgroundColor = "rgba(40, 167, 69, 0.6)"
+           backgroundColor = {['rgba(40, 167, 69, 0.6)','rgba(255, 72, 0, 0.6)']}
            borderColor = "rgba(200, 200, 200, 1)"
            />
-            </div>
+    </div> 
+</div>
+
+
+
+   
+             
+            
+
+
+
 
             
             </div></div>
