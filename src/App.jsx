@@ -33,7 +33,7 @@ function App() {
     const [checklist,setCheklist]=useState(JSON.parse(localStorage.getItem('checklist')) ? JSON.parse(localStorage.getItem('checklist')) : checklist3);
     const [selection,setSelection] = useState(checklist.map((checklist,index)=>(checklist.state)) );
     //const [task,setTask] = useState(tasks.map((tasks,index)=>(tasks.accion)) );
-    const [tasks,setTasks] = useState(taskss);
+    const [tasks,setTasks] =  useState(JSON.parse(localStorage.getItem('taskss')) ? JSON.parse(localStorage.getItem('taskss')) : taskss);
     
   //para guardar los cambios localmente
 const [data, setData] = useState(null);
@@ -62,34 +62,6 @@ console.log(localStorage.getItem('checklist3'));*/
 
 console.log('tasks');
 console.log(tasks);
-
-useEffect(() => {
-    axios.get('/public/jsons/taskss.json').then(response => {
-      //setData(response.data);
-      setTasks(response.data.taskss);
-      //console.log('public');
-      //console.log(response.data.taskss);
-      
-    });
-  }, []);
-
-  const guardarCambios = () => {
-    //const tasks = { tarea1: 'descripcion1', tarea2: 'descripcion2' };
-    axios.post('/public/jsons/taskss.json', taskss)
-      .then(response => {
-        //console.log('boton');
-        //console.log(tasks);
-        alert('Los cambios han sido guardados!');
-        
-      })
-      .catch(error => {
-        console.log(error);
-        alert('Se produjo un error al guardar los cambios.');
-      });
-  };
-  
-
-
   /*const state= {
     title: 'Aplicacion de tarea',
     ntareas: 10
@@ -183,11 +155,13 @@ useEffect(() => {
 
   
   function removeTask(index) {
-    setTasks(prevTasks => tasks.filter((e, i) => {
-      return i !== index
-    }))
-    
-   
+    const result = tasks.filter((e, i) => {
+        return i !== index
+      });
+      setTasks(result);
+      localStorage.setItem('taskss', JSON.stringify(result));
+      //console.log("IMPRIMR",result); // Imprime el resultado en la consola
+      return result; // Devuelve el resultado
 };
 
     function handleChangeCumplimiento(event,i) {
@@ -218,7 +192,6 @@ useEffect(() => {
         //setSelection( [...selection]);
         const {value , name} = event.target;
         setNewtask({...newtask,[name]:value});
-    
       }
       function handleChangeState(i,event) {
         
@@ -228,13 +201,15 @@ useEffect(() => {
         checklist[isonumbers.indexOf(tasks[i].epigrafe)].state="c";
         checklist3[isonumbers.indexOf(tasks[i].epigrafe)].state="c";
         setSelection({...selection});
+
+        localStorage.setItem('taskss', JSON.stringify(tasks));
         
       }
 
   function handleAddTask(e) {
     e.preventDefault();
     setTasks( [...tasks, newtask]);
-    //console.log("HOLA",newtask);
+    localStorage.setItem('taskss', JSON.stringify([...tasks, newtask]));
   };
 
   function handleLogin(event){
@@ -738,7 +713,7 @@ console.log("cumplidas",cumplidas);
            type = "doughnut"
            labels={["Tareas Cumplidas", "Tareas Sin Cumplir", ]}
            dataLabel="% de Respuestas dadas"
-           data = {[taskss.reduce((acum,current)=>current.estado=="c"?acum+1:acum,0),taskss.reduce((acum,current)=>current.estado=="nc"?acum+1:acum,0)]}
+           data = {[tasks.reduce((acum,current)=>current.estado=="c"?acum+1:acum,0),tasks.reduce((acum,current)=>current.estado=="nc"?acum+1:acum,0)]}
            backgroundColor = {['rgba(40, 167, 69, 0.6)','rgba(255, 72, 0, 0.6)']}
            borderColor = "rgba(200, 200, 200, 1)"
            />
