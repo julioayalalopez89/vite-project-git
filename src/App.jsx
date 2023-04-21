@@ -30,13 +30,34 @@ function App() {
     const [count, setCount] = useState( 4);
     const [theme, setTheme] = useState('blue');
     const [todos1,setTodos] = useState(todos)  ;
-    const [checklist,setCheklist]=useState(checklist3);
-    const [selection,setSelection] = useState(  checklist3.map((checklist3,index)=>(checklist3.state)) );
+    const [checklist,setCheklist]=useState(JSON.parse(localStorage.getItem('checklist')) ? JSON.parse(localStorage.getItem('checklist')) : checklist3);
+    const [selection,setSelection] = useState(checklist.map((checklist,index)=>(checklist.state)) );
     //const [task,setTask] = useState(tasks.map((tasks,index)=>(tasks.accion)) );
     const [tasks,setTasks] = useState(taskss);
     
   //para guardar los cambios localmente
 const [data, setData] = useState(null);
+
+
+//console.log(checklist3);
+// Recupera los datos almacenados en localStorage
+//console.log('checklist3');
+//setCheklist( JSON.parse((localStorage.getItem('checklist3')))  );
+
+// Analiza la cadena JSON y crea la variable checklist3
+//const checklist3 = JSON.parse(checklist3JSON);
+
+// Convierte la variable checklist3 a una cadena JSON
+//const checklist3JSON = JSON.stringify(checklist3);
+// Almacena la cadena JSON en localStorage
+//localStorage.setItem('checklist3', checklist3JSON);
+
+/*console.log('checklist3');
+console.log(localStorage.getItem('checklist3'));*/
+
+
+
+
 
 
 console.log('tasks');
@@ -182,6 +203,11 @@ useEffect(() => {
        // checklist[isonumbers.indexOf(tasks[i].epigrafe)].state="c";
         //checklist3[isonumbers.indexOf(tasks[i].epigrafe)].state="c";
        // setCheklist(checklist3);
+        const checklistJSON = JSON.stringify(checklist);
+        localStorage.setItem('checklist', checklistJSON);
+        const checklist3JSON = JSON.stringify(checklist3);
+        localStorage.setItem('checklist3', checklist3JSON);
+
         setSelection({...selection});
         console.log('check despues',i);
       }
@@ -302,7 +328,7 @@ const parcumplidas=[0,0,0,0,0,0,0];
 
 //const cantidades=Array.from(checklist3);
 //console.log('cant',typeof checklist);
-checklist3.map((obj,i)=>{
+checklist.map((obj,i)=>{
     
     if(obj.state=="nc")
     {
